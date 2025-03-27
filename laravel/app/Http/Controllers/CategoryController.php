@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;   
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -15,7 +16,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate(['name' => 'required|string|max:255']);
-        return Category::create(attributes: $request->all());
+        $data           =   new Category;
+        $data->name     =   $request->name;
+        $data->save();
+
+        return response()->json([
+            'data'          => $data,
+        ], Response::HTTP_OK);
     }
 
     public function show($id)
