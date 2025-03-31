@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->double('pricing');
             $table->text('description')->nullable();
             $table->text('images')->nullable();
+            // $table->timestamp('deleted_at')->useCurrent();
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('categories', function (Blueprint $table) {
             $table->id(); // Auto-increment primary key
             $table->string('name', 255);
+            // $table->timestamp('deleted_at')->useCurrent();
             $table->timestamps();
         });
     }
